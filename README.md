@@ -1,5 +1,11 @@
 # `pyheroicons`
 
+[![PyPI version](https://badge.fury.io/py/pyheroicons.svg)](https://pypi.org/project/pyheroicons)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python Versions](https://img.shields.io/pypi/pyversions/pyheroicons)](https://pypi.org/project/pyheroicons)
+[![Package Status](https://img.shields.io/pypi/status/pyheroicons)](https://pypi.org/project/pyheroicons)
+[![CI Build](https://github.com/burakyilmaz321/pyheroicons/actions/workflows/lint_and_test.yml/badge.svg)](https://github.com/burakyilmaz321/pyheroicons/actions/workflows/lint_and_test.yml)
+
 `pyheroicons` is a Python library that offers a convenient interface to the [Tailwind CSS Heroicons](https://heroicons.com/) icon set. This library allows developers to easily integrate Heroicons into Python-based web frameworks such as Django, Flask, or FastAPI by generating SVG icon template strings.
 
 ## Installation
