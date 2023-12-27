@@ -10,7 +10,7 @@ authors = [
 ]
 description = "Ready to use Tailwindcss Heroicons components for Python"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.8"
 classifiers = [
     "Environment :: Web Environment",
     "Intended Audience :: Developers",
@@ -19,6 +19,8 @@ classifiers = [
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Topic :: Internet :: WWW/HTTP",
@@ -30,6 +32,8 @@ dev = [
     "black",
     "isort",
     "ruff",
+    "pytest",
+    "tox",
 ]
 
 [project.urls]
@@ -37,7 +41,7 @@ dev = [
 
 [tool.black]
 line-length = 79
-target-version = ['py311']
+target-version = ["py38", "py39", "py310", "py311"]
 include = "src"
 
 [tool.isort]
@@ -55,3 +59,13 @@ exclude = [
     ".venv/",
     "icons/",
 ]
+
+[tool.tox]
+legacy_tox_ini = """
+    [tox]
+    envlist = py38, py39, py310, py311
+
+    [testenv]
+    deps = pytest
+    commands = pytest --verbose --color=yes
+"""

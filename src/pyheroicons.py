@@ -3,7 +3,7 @@ This module provides a utility for generating SVG Heroicon templates based on pr
 """  # noqa: E501
 
 from pathlib import Path
-from typing import Literal, get_args
+from typing import Literal, Optional, get_args
 from xml.etree import ElementTree
 
 Variant = Literal["outline", "solid", "mini", "micro"]
@@ -12,8 +12,8 @@ Variant = Literal["outline", "solid", "mini", "micro"]
 def heroicon(
     name: str,
     variant: Variant,
-    cls: str | None = None,
-    strokewidth: str | None = None,
+    cls: Optional[str] = None,
+    strokewidth: Optional[str] = None,
 ) -> str:
     """
     This function modifies the SVG file by setting the 'class' attribute and optionally
@@ -34,19 +34,16 @@ def heroicon(
     Raises:
         InvalidVariantError: If an invalid icon variant is provided.
     """  # noqa: E501
-    match variant:
-        case "outline":
-            path = (
-                Path("icons") / "optimized" / "24" / "outline" / f"{name}.svg"
-            )
-        case "solid":
-            path = Path("icons") / "optimized" / "24" / "solid" / f"{name}.svg"
-        case "mini":
-            path = Path("icons") / "optimized" / "20" / "solid" / f"{name}.svg"
-        case "micro":
-            path = Path("icons") / "optimized" / "16" / "solid" / f"{name}.svg"
-        case _:
-            raise InvalidVariantError
+    if variant == "outline":
+        path = Path("icons") / "optimized" / "24" / "outline" / f"{name}.svg"
+    elif variant == "solid":
+        path = Path("icons") / "optimized" / "24" / "solid" / f"{name}.svg"
+    elif variant == "mini":
+        path = Path("icons") / "optimized" / "20" / "solid" / f"{name}.svg"
+    elif variant == "micro":
+        path = Path("icons") / "optimized" / "16" / "solid" / f"{name}.svg"
+    else:
+        raise InvalidVariantError
 
     # Parse SVG file
     ElementTree.register_namespace("", "http://www.w3.org/2000/svg")
