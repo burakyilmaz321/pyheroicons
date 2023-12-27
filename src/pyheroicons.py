@@ -7,6 +7,7 @@ from typing import Literal, Optional, get_args
 from xml.etree import ElementTree
 
 Variant = Literal["outline", "solid", "mini", "micro"]
+ICONS_DIR = Path(__file__).parent.parent / "icons" / "optimized"
 
 
 def heroicon(
@@ -34,15 +35,14 @@ def heroicon(
     Raises:
         InvalidVariantError: If an invalid icon variant is provided.
     """  # noqa: E501
-    icons_dir = Path(__file__) / ".." / Path("icons") / "optimized"
     if variant == "outline":
-        path = icons_dir / "24" / "outline" / f"{name}.svg"
+        path = ICONS_DIR / "24" / "outline" / f"{name}.svg"
     elif variant == "solid":
-        path = icons_dir / "24" / "solid" / f"{name}.svg"
+        path = ICONS_DIR / "24" / "solid" / f"{name}.svg"
     elif variant == "mini":
-        path = icons_dir / "20" / "solid" / f"{name}.svg"
+        path = ICONS_DIR / "20" / "solid" / f"{name}.svg"
     elif variant == "micro":
-        path = icons_dir / "16" / "solid" / f"{name}.svg"
+        path = ICONS_DIR / "16" / "solid" / f"{name}.svg"
     else:
         raise InvalidVariantError
 
