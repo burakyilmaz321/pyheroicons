@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+# This script downloads a specified version of the heroicons from GitHub releases.
+# It extracts only the 'optimized' folder from the release archive.
+
+set -e  # Exit immediately if a command exits with a non-zero status.
+
+# Check if a version was provided
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <version>"
+    exit 1
+fi
+
+# Check if curl is installed
+if ! command -v curl >/dev/null; then
+    echo "Error: curl is required to download files."
+    exit 1
+fi
+
+# Get the version from the command line
+VERSION="$1"
+
+# Define the download URL
+URL="https://github.com/tailwindlabs/heroicons/archive/refs/tags/v${VERSION}.zip"
+
+# Download the file using curl
+echo "Downloading heroicons version $VERSION..."
+curl -L "$URL" -o "heroicons.zip"
+
+# Extract the downloaded zip file
+echo "Extracting the files..."
+unzip -q "heroicons.zip"
+
+# Create the 'icons' directory if it does not exist
+if [ ! -d "icons" ]; then
+    mkdir -p "icons"
+fi
+
+# Move the 'optimized' folder into 'icons' folder
+echo "Moving 'optimized' folder..."
+rm -rf "icons/optimized"
+mv "heroicons-${VERSION}/optimized" "icons"
+
+# Clean up downloaded zip file and extracted folder
+echo "Cleaning up..."
+rm "heroicons.zip"
+rm -rf "heroicons-${VERSION}"
+
+echo "Heroicons version $VERSION downloaded and extracted to 'icons/optimized'."

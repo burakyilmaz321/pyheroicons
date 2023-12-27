@@ -1,0 +1,57 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyheroicons"
+version = "1.0.0"
+authors = [
+  { name="Burak Yilmaz", email="burakyilmaz321@gmail.com" },
+]
+description = "Ready to use Tailwindcss Heroicons components for Python"
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Environment :: Web Environment",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+]
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "isort",
+    "ruff",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/burakyilmaz321/pyheroicons"
+
+[tool.black]
+line-length = 79
+target-version = ['py311']
+include = "src"
+
+[tool.isort]
+profile = "black"
+line_length = 79
+known_first_party = [
+    "src",
+]
+skip = [".venv/", "icons/"]
+
+[tool.ruff]
+line-length = 79
+select = ["F", "E", "W", "I", "N"]
+exclude = [
+    ".venv/",
+    "icons/",
+]
