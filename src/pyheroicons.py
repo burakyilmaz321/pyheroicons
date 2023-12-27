@@ -34,14 +34,15 @@ def heroicon(
     Raises:
         InvalidVariantError: If an invalid icon variant is provided.
     """  # noqa: E501
+    icons_dir = Path(__file__) / ".." / Path("icons") / "optimized"
     if variant == "outline":
-        path = Path("icons") / "optimized" / "24" / "outline" / f"{name}.svg"
+        path = icons_dir / "24" / "outline" / f"{name}.svg"
     elif variant == "solid":
-        path = Path("icons") / "optimized" / "24" / "solid" / f"{name}.svg"
+        path = icons_dir / "24" / "solid" / f"{name}.svg"
     elif variant == "mini":
-        path = Path("icons") / "optimized" / "20" / "solid" / f"{name}.svg"
+        path = icons_dir / "20" / "solid" / f"{name}.svg"
     elif variant == "micro":
-        path = Path("icons") / "optimized" / "16" / "solid" / f"{name}.svg"
+        path = icons_dir / "16" / "solid" / f"{name}.svg"
     else:
         raise InvalidVariantError
 
