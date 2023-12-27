@@ -4,6 +4,7 @@ This module provides a utility for generating SVG Heroicon templates based on pr
 
 from pathlib import Path
 from typing import Literal, Optional, get_args
+
 from xml.etree import ElementTree
 
 Variant = Literal["outline", "solid", "mini", "micro"]
