@@ -4,6 +4,7 @@ from pathlib import Path
 from unittest.mock import patch
 
 import pytest
+
 from pyheroicons import InvalidVariantError, heroicon
 
 TEST_ICONS = Path(__file__).parent / "icons" / "optimized"

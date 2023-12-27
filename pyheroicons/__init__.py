@@ -7,7 +7,7 @@ from typing import Literal, Optional, get_args
 from xml.etree import ElementTree
 
 Variant = Literal["outline", "solid", "mini", "micro"]
-ICONS_DIR = Path(__file__).parent.parent / "icons" / "optimized"
+ICONS_DIR = Path(__file__).parent / "icons" / "optimized"
 
 
 def heroicon(

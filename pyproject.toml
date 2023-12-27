@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pyheroicons"
-version = "1.0.2"
+version = "1.1.0"
 authors = [
   { name="Burak Yilmaz", email="burakyilmaz321@gmail.com" },
 ]
@@ -48,9 +48,6 @@ include = "src"
 [tool.isort]
 profile = "black"
 line_length = 79
-known_first_party = [
-    "src",
-]
 skip = [".venv/", "icons/"]
 
 [tool.ruff]
@@ -77,3 +74,6 @@ legacy_tox_ini = """
         "3.10": py310
         "3.11": py311
 """
+
+[tool.setuptools.packages]
+find = {}
