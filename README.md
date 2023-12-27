@@ -43,8 +43,8 @@ print(icon_svg)
 `pyheroicons` aims to stay up-to-date with the Heroicons library. When a new version of Heroicons is released, `pyheroicons` will also release a corresponding version to ensure compatibility.
 
 | pyheroicons Version | Heroicons Version |
-| --------------------- | ----------------- |
-| 1.0.0                 | 2.1.1             |
+| ------------------- | ----------------- |
+| 1.0.1               | 2.1.1             |
 
 ## Contributing
 
