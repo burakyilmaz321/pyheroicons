@@ -44,7 +44,7 @@ print(icon_svg)
 
 | pyheroicons Version | Heroicons Version |
 | ------------------- | ----------------- |
-| 1.1.0               | 2.1.1             |
+| 1.1.0               | 2.1.5             |
 
 ## Contributing
 
